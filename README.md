@@ -34,5 +34,6 @@ Manages travel destinations users can choose from:
 
 ---
 
-## ⚙️ Project Structure
+## Project Structure
+
 
