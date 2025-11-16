@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Successful</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f5f5f5; text-align: center; padding: 50px; }
+        .card { background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
+        .button { background: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Payment Successful!</h1>
+        {% if payment %}
+            <p>Thank you, <strong>{{ payment.name }}</strong>.</p>
+            <p>Amount Paid: <strong>${{ payment.amount }}</strong></p>
+            <p>Payment Method: <strong>{{ payment.payment_method }}</strong></p>
+        {% endif %}
+        <a href="{% url 'payment_form' %}" class="button">Make another payment</a>
+    </div>
+</body>
+</html>
