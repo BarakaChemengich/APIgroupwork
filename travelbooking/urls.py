@@ -8,7 +8,7 @@ def home_view(request):
 urlpatterns = [
     path('', home_view, name='home'),
     path('admin/', admin.site.urls),
-    path('users/', include('users.urls')),
+    path('users/', include('APIgroupwork.users.urls')),
     # path('bookings/', include('bookings.urls')),
     # path('api/users/', include('APIgroupwork.users.urls')),  # Commented out due to app not in INSTALLED_APPS
 ]

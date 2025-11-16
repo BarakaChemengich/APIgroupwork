@@ -26,9 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users',
+    'APIgroupwork.users',
     # 'bookings',
-    # 'APIgroupwork.users',  # Commented out due to duplicate label
 ]
 
 MIDDLEWARE = [
@@ -41,7 +40,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'travelbooking.urls'
+ROOT_URLCONF = 'APIgroupwork.travelbooking.urls'
 
 TEMPLATES = [
     {
@@ -59,7 +58,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'travelbooking.wsgi.application'
+WSGI_APPLICATION = 'APIgroupwork.travelbooking.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases

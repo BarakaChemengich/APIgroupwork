@@ -89,6 +89,9 @@
         <h1>Welcome to Travel Booking System</h1>
         {% if user.is_authenticated %}
             <p>Hello, {{ user.username }}! You are logged in.</p>
+            {% if user.is_traveler %}
+                <p>You are logged in as a Traveler.</p>
+            {% endif %}
             {% if user.is_admin %}
                 <p>You have admin privileges.</p>
             {% endif %}
