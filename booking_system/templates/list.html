@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bookings</title>
+<style>
+body { font-family: Arial, sans-serif; background-color:#f5f6fa; margin:0; padding:0; }
+header { background-color:#0077b6; color:white; text-align:center; padding:1rem; }
+.container { display:flex; flex-wrap:wrap; justify-content:center; padding:20px; gap:20px; }
+.card { background:white; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); width:300px; overflow:hidden; transition:transform 0.2s; }
+.card:hover { transform:scale(1.03); }
+.card-content { padding:15px; }
+.card h3 { margin:0 0 10px 0; color:#023e8a; }
+.card p { margin:5px 0; color:#555; }
+.add-btn { display:inline-block; background-color:#0096c7; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; margin:20px; }
+.add-btn:hover { background-color:#0077b6; }
+.card-actions { margin-top:15px; display:flex; gap:10px; }
+.btn-edit, .btn-delete { padding:8px 15px; border-radius:5px; text-decoration:none; font-size:14px; flex:1; text-align:center; }
+.btn-edit { background-color:#28a745; color:white; }
+.btn-edit:hover { background-color:#218838; }
+.btn-delete { background-color:#dc3545; color:white; }
+.btn-delete:hover { background-color:#c82333; }
+</style>
+</head>
+<body>
+<header>
+  <h1>📅 Bookings</h1>
+  <a href="{% url 'add_booking' %}" class="add-btn">+ Add Booking</a>
+</header>
+
+<div class="container">
+  {% for b in items %}
+    <div class="card">
+      <div class="card-content">
+        <h3>{{ b.name }}</h3>
+        <p><strong>Email:</strong> {{ b.email }}</p>
+        <p><strong>Destination:</strong> {{ b.destination.name }}</p>
+        <p><strong>Date:</strong> {{ b.date }}</p>
+        <div class="card-actions">
+          <a href="{% url 'edit_booking' b.id %}" class="btn-edit">✏ Edit</a>
+          <a href="{% url 'delete_booking' b.id %}" class="btn-delete">🗑 Delete</a>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p style="text-align:center;">No bookings yet.</p>
+  {% endfor %}
+</div>
+</body>
+</html>
