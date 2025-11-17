@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings</title>
+</head>
+<body>
+    <h1>My Bookings</h1>
+    {% if bookings %}
+        <ul>
+            {% for booking in bookings %}
+                <li>
+                    <strong>Destination:</strong> {{ booking.destination }}<br>
+                    <strong>Date:</strong> {{ booking.date }}<br>
+                    <strong>Number of People:</strong> {{ booking.num_people }}<br>
+                    <strong>Status:</strong> {{ booking.get_status_display }}<br>
+                    <strong>Created At:</strong> {{ booking.created_at }}<br>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have no bookings yet.</p>
+    {% endif %}
+    <a href="{% url 'create_booking' %}">Create New Booking</a>
+</body>
+</html>
